@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "CmdPalTOTPExtension (Package)": {
+      "commandName": "MsixPackage",
+      "doNotLaunchApp": true
+    },
+    "CmdPalTOTPExtension (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
