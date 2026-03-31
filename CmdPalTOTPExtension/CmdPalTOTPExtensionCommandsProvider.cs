@@ -7,21 +7,18 @@ using Microsoft.CommandPalette.Extensions.Toolkit;
 
 namespace CmdPalTOTPExtension;
 
-public partial class CmdPalTOTPExtensionCommandsProvider : CommandProvider
-{
+public partial class CmdPalTOTPExtensionCommandsProvider: CommandProvider {
     private readonly ICommandItem[] _commands;
 
-    public CmdPalTOTPExtensionCommandsProvider()
-    {
+    public CmdPalTOTPExtensionCommandsProvider() {
         DisplayName = "TOTP";
-        Icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
+        Icon = IconHelpers.FromRelativePaths("Assets\\icon-light.png", "Assets\\icon-dark.png");
         _commands = [
             new CommandItem(new CmdPalTOTPExtensionPage()) { Title = DisplayName },
         ];
     }
 
-    public override ICommandItem[] TopLevelCommands()
-    {
+    public override ICommandItem[] TopLevelCommands() {
         return _commands;
     }
 

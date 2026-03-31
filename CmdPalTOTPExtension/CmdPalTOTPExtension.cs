@@ -10,16 +10,11 @@ using Microsoft.CommandPalette.Extensions;
 namespace CmdPalTOTPExtension;
 
 [Guid("4f7519ce-da75-4cdc-9950-86baf0817ca1")]
-public sealed partial class CmdPalTOTPExtension : IExtension, IDisposable
+public sealed partial class CmdPalTOTPExtension(ManualResetEvent extensionDisposedEvent) : IExtension, IDisposable
 {
-    private readonly ManualResetEvent _extensionDisposedEvent;
+    private readonly ManualResetEvent _extensionDisposedEvent = extensionDisposedEvent;
 
     private readonly CmdPalTOTPExtensionCommandsProvider _provider = new();
-
-    public CmdPalTOTPExtension(ManualResetEvent extensionDisposedEvent)
-    {
-        this._extensionDisposedEvent = extensionDisposedEvent;
-    }
 
     public object? GetProvider(ProviderType providerType)
     {
